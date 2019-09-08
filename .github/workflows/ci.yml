@@ -1,0 +1,36 @@
+name: 'Publish static site to Github Pages'
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        # Checkout the code
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: '12.x'
+
+        # Generate the website
+        - name: Publish website
+          run: |
+            cd src/app
+            npm install
+            npm run build
+
+        # Publish the website
+        - name: GitHub Pages action
+          if: ${{ github.ref == 'refs/heads/main' }} # Publish only when the push is on main
+          uses: peaceiris/actions-gh-pages@v3.6.1
+          with:
+            github_token: ${{ secrets.PUBLISH_TOKEN }}
+            publish_branch: gh-pages
+            publish_dir: dist
+            allow_empty_commit: false
+            keep_files: false
+            force_orphan: true
+            # Custom Domain
+            cname: test.exokomodo.com

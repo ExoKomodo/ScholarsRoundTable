@@ -1,0 +1,11 @@
+@import '@/styles/variables';
+
+.inline {
+  display: inline;
+}
+
+.link {
+  color: $link;
+  font-weight: bold;
+  text-decoration: underline;
+}

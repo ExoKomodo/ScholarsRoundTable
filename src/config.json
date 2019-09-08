@@ -1,0 +1,22 @@
+{
+    "database": {
+        "host": "goats.cig1ogsmpjba.us-east-2.rds.amazonaws.com",
+        "name": "Goats",
+        "password": "theologygoats",
+        "port": 3306,
+        "user": "admin"
+    },
+    "mockDatabase": {
+        "host": "goats-mock.cig1ogsmpjba.us-east-2.rds.amazonaws.com",
+        "name": "Goats",
+        "password": "theologygoats",
+        "port": 3306,
+        "user": "admin"
+    },
+    "oauth": {
+        "GOOGLE_CLIENT_ID": "807163619083-iu4atr9o80peigfqnr5pkc21qmiv8v6t.apps.googleusercontent.com",
+        "GOOGLE_CLIENT_SECRET": "jOlKAhxdOfdzI6qbyaSuB940",
+        "GOOGLE_DISCOVERY_URL": "https://accounts.google.com/.well-known/openid-configuration"
+    },
+    "SECRET_KEY": "02e3ee3b65eb182eac29061d0402348fad97bccca950a206"
+}

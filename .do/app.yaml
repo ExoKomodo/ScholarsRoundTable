@@ -1,0 +1,17 @@
+domains:
+- domain: scholarsroundtable.exokomodo.com
+  type: PRIMARY
+name: scholarsroundtable
+region: sfo
+services:
+- github:
+    branch: main
+    deploy_on_push: true
+    repo: ExoKomodo/ScholarsRoundTable
+  http_port: 80
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: scholarsroundtable
+  routes:
+  - path: /
+  source_dir: /
