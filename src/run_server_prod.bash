@@ -2,7 +2,7 @@
 
 set -ex
 
-nginx -s reload
+nginx
 
 cd /app/server/bin/Release/net6.0
 
