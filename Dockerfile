@@ -32,6 +32,7 @@ RUN . ./env/bin/activate
 RUN pip3 install -e .
 
 RUN rm -f /etc/nginx/sites-enabled/*
+RUN rm -f /etc/nginx/sites-available/*
 RUN ln -f /app/server/nginx/server.conf /etc/nginx/sites-available/server.conf
 RUN ln -s /etc/nginx/sites-available/server.conf /etc/nginx/sites-enabled/server.conf
 
