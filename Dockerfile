@@ -3,16 +3,16 @@
 ###########
 FROM mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim as builder
 
+RUN apt-get update -y
+RUN apt-get install -y python3
+RUN apt-get install -y python3-pip
+RUN apt-get install -y python3-venv
+
 COPY ./src /app
 
 WORKDIR /app/server
 
 RUN dotnet publish --configuration Release
-
-RUN apt-get update -y
-RUN apt-get install -y python3
-RUN apt-get install -y python3-pip
-RUN apt-get install -y python3-venv
 
 WORKDIR /app
 
@@ -26,14 +26,14 @@ RUN pip3 install -e .
 ############
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-bullseye-slim as deployer
 
-COPY --from=builder /app /app
-
 RUN apt-get update -y
 RUN apt-get install -y nginx
 RUN apt-get install -y python3
 RUN apt-get install -y python3-venv
 
 RUN apt-get autoremove
+
+COPY --from=builder /app /app
 
 RUN rm -f /etc/nginx/sites-enabled/*
 RUN ln -f /app/server/nginx/server.conf /etc/nginx/sites-available/server.conf
