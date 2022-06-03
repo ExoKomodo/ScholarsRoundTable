@@ -34,6 +34,7 @@ RUN apt-get install -y python3-venv
 RUN apt-get autoremove
 
 COPY --from=builder /app /app
+COPY --from=builder /app/env /app/env
 
 RUN rm -f /etc/nginx/sites-enabled/*
 RUN ln -f /app/server/nginx/server.conf /etc/nginx/sites-available/server.conf
