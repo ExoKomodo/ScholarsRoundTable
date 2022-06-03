@@ -10,6 +10,7 @@ namespace server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [EnableCors("Default")]
     public class AuthoritiesController : ControllerBase
     {
         private readonly ILogger<AuthoritiesController> _logger;
