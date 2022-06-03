@@ -3,11 +3,6 @@
 ###########
 FROM mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim as builder
 
-RUN apt-get update -y
-RUN apt-get install -y python3
-RUN apt-get install -y python3-pip
-RUN apt-get install -y python3-venv
-
 COPY ./src /app
 
 WORKDIR /app/server
