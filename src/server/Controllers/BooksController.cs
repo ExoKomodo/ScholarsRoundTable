@@ -10,6 +10,7 @@ namespace server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [EnableCors("Default")]
     public class BooksController : ControllerBase
     {
         private readonly ILogger<BooksController> _logger;
