@@ -32,8 +32,8 @@ RUN . ./env/bin/activate
 RUN pip3 install -e .
 
 RUN rm -f /etc/nginx/sites-enabled/*
-RUN rm -f /etc/nginx/sites-available/*
-RUN ln -f /app/server/nginx/server.conf /etc/nginx/conf.d/server.conf
+RUN ln -f /app/nginx/server.conf /etc/nginx/sites-available/server.conf
+RUN ln -s /etc/nginx/sites-available/server.conf /etc/nginx/sites-enabled/server.conf
 
 EXPOSE 80
 ENV ASPNETCORE_URLS=http://+:5000
