@@ -6,4 +6,4 @@ nginx
 
 cd /app/server/bin/Release/net6.0
 
-server
+dotnet ./server.dll
