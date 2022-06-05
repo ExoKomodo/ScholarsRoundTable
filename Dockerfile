@@ -16,9 +16,9 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0-bullseye-slim as deployer
 
 RUN apt-get update -y
 RUN apt-get install -y nginx
-RUN apt-get install -y python3
-RUN apt-get install -y python3-pip
-RUN apt-get install -y python3-venv
+# RUN apt-get install -y python3
+# RUN apt-get install -y python3-pip
+# RUN apt-get install -y python3-venv
 
 RUN apt-get autoremove
 
@@ -26,10 +26,10 @@ COPY --from=builder /app /app
 
 WORKDIR /app
 
-RUN python3 -m venv env
-RUN . ./env/bin/activate
+# RUN python3 -m venv env
+# RUN . ./env/bin/activate
 
-RUN pip3 install -e .
+# RUN pip3 install -e .
 
 RUN rm -f /etc/nginx/sites-enabled/*
 RUN ln -f /app/nginx/server.conf /etc/nginx/sites-available/server.conf
