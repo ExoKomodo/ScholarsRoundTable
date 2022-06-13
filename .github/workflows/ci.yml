@@ -33,4 +33,4 @@ jobs:
             keep_files: false
             force_orphan: true
             # Custom Domain
-            cname: scholarsoundtable.com
+            cname: scholarsroundtable.com
